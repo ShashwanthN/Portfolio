@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Playwrite+DE+VA:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Indie+Flower&family=Playwrite+DE+VA:wght@100..400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html {
+  overscroll-behavior: contain;
+  background-color: #e2e4dd;
+} 
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgb(255, 255, 255) 2px, transparent 1px),
+    linear-gradient(to bottom, rgb(255, 255, 255) 2px, transparent 1px);
+}
+
+
+.ascii-background h1 {
+  position: relative;
+  z-index: 1; 
+}
+
+.navbar-item {
+  animation: scrollVertical 5s linear infinite;
+}
+
+.hover-effect {
+  transition: background-color 0.3s ease;
+  background-color: #ff6101;
+  border-left: 1px solid #000;
+   border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  color: #000;
+
+}
+
+.hover-effect:hover {
+  background-color: #242628; 
+  color: #fff;
+
+  
+}
+
+.for-reverse {
+  transition: background-color 0.3s ease;
+  background-color: #242628;
+  border: 2px solid #ff6101;
+  color: #fff;
+  
+}
+
+.for-reverse:hover {
+  background-color: #ff6101; 
+  color: #000;
+  border: 2px dashed #000;
+
+}
+.bg-ruled-paper {
+  background: linear-gradient(to bottom, white 28px, #e5e7eb 28px, #e5e7eb 29px, white 29px);
+  background-size: 100% 30px;
+  background-repeat: repeat-y;
+  background-attachment: local; 
+}
+
+
+.circle {
+  transition: transform 1s ease-in-out;
+
+  background-color: lightblue;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll linear infinite;
+}
