@@ -55,7 +55,7 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen mx-auto py-16 relative bg-coolMint">
+    <div className="w-full min-h-screen mx-auto py-16 relative bg-gray-3">
       <div className="flex h-full space-x-28 mx-8">
         <h2 className="text-5xl w-full text-secondary font-bold mb-12 font-classic">
           Tech That’s Got Your (and my) <br />

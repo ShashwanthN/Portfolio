@@ -68,7 +68,9 @@ const FloatingCircles = () => {
   
       
     };
-    
+    useEffect(()=>{
+      resumeAnimation();
+    }, []);
 
   const resumeAnimation = () => {
     if(isStopped){
@@ -168,7 +170,7 @@ const FloatingCircles = () => {
           setTimeout(() => {
             setIsTransformed(true);
             animationInProgress.current = false;
-          }, 1000);
+          }, 10000);
         });
       }
     });

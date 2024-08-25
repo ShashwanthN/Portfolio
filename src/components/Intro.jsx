@@ -136,7 +136,8 @@ const Intro = () => {
         <div className="md:w-1/2 bg-grid flex flex-col border-black border-b justify-center relative">
           <div className="absolute top-0 right-0 text-end w-3/4 opacity-40 font-thin text-3xl px-4 py-2 bg-gray-800 text-black">
             It's not always about making things "clean"—sometimes, the magic
-            happens when you embrace the messy corners of creativity. ; )
+            happens when you let messy corners of creativity in.   
+              ;)
           </div>
           <MacWindow />
           <div className="absolute bottom-0 right-0 transform duration-500 w-32 md:w-48 hover:scale-105">

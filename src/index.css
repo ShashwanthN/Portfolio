@@ -7,11 +7,24 @@
 @tailwind utilities;
 
 
+.brightness-75 {
+  filter: brightness(75%);
+}
 
 html {
   overscroll-behavior: contain;
   background-color: #e2e4dd;
 } 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 .no-scrollbar::-webkit-scrollbar {

@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen w-4/5 mx-auto border bg-primary   text-black flex flex-col">
         <NormalNavbar/>
-      
+        {/* <div className="absolute mt-[4.9rem] border-b border-black w-full"></div> */}
         <header className="flex flex-col md:flex-row  justify-between items-center p-4 mt-[4.9rem] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 border-b border-black">
 
         <h1 className="text-4xl font-mono text-white">Let's Connect</h1>
