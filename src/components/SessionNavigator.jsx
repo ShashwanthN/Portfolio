@@ -24,8 +24,10 @@ const GridItem = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
     navigate(path);
   };
+  
 
   return (
     <div
@@ -65,13 +67,14 @@ const GridItem = ({
         )}
       </div>
       {hoveredIndex !== index && (
-        
         <div
           className={`absolute my-10 h-full w-full p-4 z-20 transition-all duration-700 ease-out transform opacity-100 translate-y-0 ${color} bg-gray-800`}
         >
           <h3 className="text-5xl font-mono font-light">{title}</h3>
           <p className="font-sans text-gray-200 mt-4 text-sm">{content}</p>
-          <pre className={`text-xs   absolute right-0 bottom-0 font-bold font-mono text-accent z-0 ${anyDesigns}`}>
+          <pre
+            className={`text-xs absolute right-0 bottom-0 font-bold font-mono text-accent z-0 ${anyDesigns}`}
+          >
             {ascii}
           </pre>
         </div>
@@ -130,7 +133,7 @@ const SessionNavigator = () => {
       image: DRDO,
       imageWidth: "50%",
       anyDesigns: "bottom-16 left-96",
-       ascii: `                                    
+      ascii: `                                    
    ______
   /(    )\\
   \\ \\  / /
@@ -142,7 +145,8 @@ const SessionNavigator = () => {
     |  |
     |  |
     \\  / 
-     \\/`,},
+     \\/`,
+    },
     {
       label: "Know Me",
       title: "What am I like?",

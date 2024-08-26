@@ -8,6 +8,7 @@ const FloatingCircles = () => {
     socials: { top: "75%", left: "65%" },
     otherStuff: { top: "23%", left: "94%" },
   });
+  const [started, setStarted] = useState(false);
   const [isTransformed, setIsTransformed] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isStopped, setIsStopped] = useState(false);
@@ -16,9 +17,6 @@ const FloatingCircles = () => {
   const animatedDivRefs = useRef([]);
   const animationInProgress = useRef(false);
   const lineRefs = useRef([]);
-
-
-  
 
   const controls = {
     projects: useAnimation(),
@@ -29,59 +27,44 @@ const FloatingCircles = () => {
 
   const [isAnimating, setIsAnimating] = useState(true);
 
-    
-    const stopAnimation = () => {
-      setIsAnimating(false);
-    
-     
-    
-      
-      controls.projects.stop();
-      controls.knowMe.stop();
-      controls.socials.stop();
-      controls.otherStuff.stop();
-    
-      
+  const stopAnimation = () => {
+    setIsAnimating(false);
+
+    controls.projects.stop();
+    controls.knowMe.stop();
+    controls.socials.stop();
+    controls.otherStuff.stop();
+  };
+
+  const stopAllAnimation = () => {
+    setIsAnimating(false);
+
+    const newPositions = {
+      projects: { top: "11%", left: "calc(100% - 50px)" },
+      knowMe: { top: "17%", left: "calc(100% - 50px)" },
+      socials: { top: "23%", left: "calc(100% - 50px)" },
+      otherStuff: { top: "29%", left: "calc(100% - 50px)" },
     };
 
+    setPositions(newPositions);
 
-    const stopAllAnimation = () => {
-      setIsAnimating(false);
-    
-    
-        
-      const newPositions = {
-        projects: { top: "11%", left: "calc(100% - 50px)" },
-        knowMe: { top: "17%", left: "calc(100% - 50px)" },
-        socials: { top: "23%", left: "calc(100% - 50px)" },
-        otherStuff: { top: "29%", left: "calc(100% - 50px)" },
-      };
-       
-        setPositions(newPositions);
-        
-          controls.projects.start(newPositions.projects);
-          controls.knowMe.start(newPositions.knowMe);
-          controls.socials.start(newPositions.socials);
-          controls.otherStuff.start(newPositions.otherStuff);
-      
-      
-  
-      
-    };
-    useEffect(()=>{
-      resumeAnimation();
-    }, []);
+    controls.projects.start(newPositions.projects);
+    controls.knowMe.start(newPositions.knowMe);
+    controls.socials.start(newPositions.socials);
+    controls.otherStuff.start(newPositions.otherStuff);
+  };
 
   const resumeAnimation = () => {
-    if(isStopped){
+    if (isStopped) {
       stopAllAnimation();
     }
-      setIsAnimating(true);
-    
+    setIsAnimating(true);
   };
 
   useEffect(() => {
     let interval;
+
+    const intervals = started ? 10000 : 10;
 
     if (isAnimating && !isStopped) {
       interval = setInterval(() => {
@@ -109,19 +92,23 @@ const FloatingCircles = () => {
         controls.knowMe.start(newPositions.knowMe);
         controls.socials.start(newPositions.socials);
         controls.otherStuff.start(newPositions.otherStuff);
-      }, 10000);
+
+        if (!started) {
+          setStarted(true);
+        }
+      }, intervals);
     } else {
       clearInterval(interval);
     }
 
     return () => clearInterval(interval);
-  }, [isAnimating, isStopped]);
+  }, [isAnimating, isStopped, started, controls]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolling(scrollPosition > 10);
-  
+
       if (scrollPosition >= 100) {
         if (!isTransformed && !animationInProgress.current) {
           stopAnimation();
@@ -136,11 +123,10 @@ const FloatingCircles = () => {
         }
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isTransformed, isStopped]);
-  
 
   const transformDivs = () => {
     animationInProgress.current = true;
@@ -170,11 +156,17 @@ const FloatingCircles = () => {
           setTimeout(() => {
             setIsTransformed(true);
             animationInProgress.current = false;
-          }, 10000);
+          }, 1000);
         });
       }
     });
   };
+
+  useEffect(() => {
+    if (!isStopped) {
+      setIsAnimating(true);
+    }
+  }, []);
 
   const reverseTransformDivs = () => {
     animationInProgress.current = true;
@@ -201,22 +193,32 @@ const FloatingCircles = () => {
 
     setTimeout(() => {
       setIsTransformed(false);
-      if(isStopped) {
+      if (isStopped) {
         stopAllAnimation();
       }
       animationInProgress.current = false;
     }, 1000);
   };
 
+  useEffect(() => {
+    if (!isStopped) {
+      setIsAnimating(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isStopped) {
+      setIsAnimating(true);
+    }
+  }, []);
+
   return (
     <div className="md:w-4/5 w-full mx-auto flex items-center justify-center">
-      <div className="fixed z-40 top-0 border-black md:w-4/5 w-full mx-auto grid grid-cols-6 h-20 transition-all transform duration-500 items-center"
-      >
+      <div className="fixed z-40 top-0 border-black md:w-4/5 w-full mx-auto grid grid-cols-6 h-20 transition-all transform duration-500 items-center">
         <div
           className="navbar-item z-50 border-b border-l border-t border-black h-20 col-span-2 bg-blue-500 text-white flex items-center justify-center transition-opacity duration-500"
           style={{
             opacity: isTransformed ? 1 : 0,
-           
           }}
         ></div>
         <div
@@ -337,7 +339,6 @@ const FloatingCircles = () => {
               onClick={() => {
                 setIsStopped(true);
                 stopAllAnimation();
-                
               }}
               className="p-2 bg-red-500 hover:bg-red-600 text-xs text-black border border-black"
             >
@@ -347,7 +348,6 @@ const FloatingCircles = () => {
           {isStopped && (
             <button
               onClick={() => {
-                
                 resumeAnimation();
                 setIsStopped(false);
               }}

@@ -28,7 +28,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         
         </Routes>
-        <div className='w-4/5 mx-auto '>
+        <div className='w-4/5 mx-auto'>
         <Footer/>
         </div>
        

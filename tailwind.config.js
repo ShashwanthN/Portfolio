@@ -10,13 +10,48 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      animation: {
+        'gradient-x': 'gradient-x 5s ease infinite',
+      },
+     
+        
       fontFamily: {
         sans: ["Roboto", "sans-serif"], 
         mono: ["Roboto Mono", "Fira Code", "Courier New", "monospace"], 
         handwriting: ['Indie Flower', 'cursive'],
         classic: ['"DM Serif Text"', 'serif'],
       },
+      animation: {
+        "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        slide: "slide var(--speed) ease-in-out infinite alternate",
+      },
+      keyframes: {
+        "spin-around": {
+          "0%": {
+            transform: "translateZ(0) rotate(0)",
+          },
+          "15%, 35%": {
+            transform: "translateZ(0) rotate(90deg)",
+          },
+          "65%, 85%": {
+            transform: "translateZ(0) rotate(270deg)",
+          },
+          "100%": {
+            transform: "translateZ(0) rotate(360deg)",
+          },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        slide: {
+          to: {
+            transform: "translate(calc(100cqw - 100%), 0)",
+          },
+        },
+      },
       colors: {
+        darkBorder: "#3a3a3c",
         text: "#07070c",
         background: "#f4f4fa",
         teal: "#0077b6",
