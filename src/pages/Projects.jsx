@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import ProjectCard from "../components/projects/ProjectCard";
 import ProjectDetailedView from "../components/projects/ProjectDetailedView";
 import HomePageOfEb from "../assets/HomePageOfEb.png";
+import vid from "../assets/NoSurprises.mp4";
 import { motion, AnimatePresence } from "framer-motion";
+import JWT from "../assets/jwtimg.png";
+import Carousel from "../components/Carousal";
+import Razorpay from "../assets/Razorpay.png";
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const detailedViewRef = useRef(null);
@@ -61,7 +65,7 @@ const Projects = () => {
           src: "/path/to/project-one-video.mp4",
           styles: {
             container: "my-8 w-full flex justify-center",
-            video: "rounded-lg shadow-lg max-w-full h-auto",
+            video: "shadow-lg max-w-full h-auto",
             text: "rounded-lg shadow-lg",
           },
         },
@@ -87,45 +91,252 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Project Two",
-      description: "A scalable microservices architecture.",
-      tagline: "Powering the future of applications.",
+      title: "EB Billing System",
+      description:
+        "An advanced electronic billing system built to manage and automate utility billing processes efficiently.",
+      tagline: "Transforming utility payments into a seamless experience.",
       technologies: [
-        { name: "Node.js", color: "#339933" },
-        { name: "Docker", color: "#2496ED" },
-        { name: "Kubernetes", color: "#326CE5" },
-        { name: "MongoDB", color: "#47A248" },
+        { name: "Spring Boot", color: "#6DB33F" },
+        { name: "React", color: "#61DAFB" },
+        { name: "MySQL", color: "#4479A1" },
+        { name: "JWT", color: "#000000" },
       ],
       content: [
-        {
-          type: "image",
-          src: "/path/to/project-two-image.jpg",
-          alt: "Project Two Image",
-          styles: {
-            container: "my-8 w-full flex justify-center",
-            image: "rounded-lg shadow-lg",
+        [
+          {
+            type: "image",
+            src: "/path/to/project-two-image.jpg",
+            text: (
+              <>
+                Designed to be{" "}
+                <span className="text-accent">scalable.</span>
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-start",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic ",
+            },
           },
-        },
-        {
-          type: "video",
-          src: "/path/to/project-two-video.mp4",
-          styles: {
-            container: "my-8 w-full flex justify-center",
-            video: "rounded-lg shadow-lg max-w-full h-auto",
+          {
+            type: "video",
+            src: vid,
+            styles: {
+              container: "w-full flex justify-end",
+              video: "rounded-lg shadow-lg max-w-full h-auto",
+            },
           },
-        },
-        {
-          type: "text",
-          text: "This is additional text content for Project Two.",
-          styles: {
-            container: "my-8",
-            text: "text-xl font-semibold leading-relaxed",
+          {
+            type: "text",
+            text: (
+              <>
+                The EB Billing System is an innovative platform that simplifies
+                the management of electricity billing by automating key
+                processes. Built with performance in mind, it ensures accuracy
+                and reliability at every step.{" "}
+                <span className="text-softCoral">
+                  Experience seamless integration and robust functionality.
+                </span>
+              </>
+            ),
+            styles: {
+              container: "my-8",
+              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+            },
+            dangerouslySetInnerHTML: true,
           },
-        },
+        ],
+        [
+          {
+            type: "image",
+            src: "/path/to/security-image.jpg",
+            text: (
+              <>
+                <span className="text-blue-500">Security</span> in mind.
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-end",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic ",
+            },
+            dangerouslySetInnerHTML: true,
+          },
+          {
+            type: "image",
+            src: JWT,
+            styles: {
+              container: "w-3/5 halocont flex justify-center mx-auto",
+              image: "rounded-lg haloimage w-full h-auto",
+            },
+          },
+          {
+            type: "image",
+            text: "The EB Billing System employs JWT (JSON Web Tokens) to ensure secure and reliable authentication. By leveraging JWT, the system safeguards user data, providing a secure environment for managing billing information online.",
+            styles: {
+              container: "my-8 flex justify-end",
+              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+            },
+          },
+        ],
+        [
+          {
+            type: "image",
+            src: "/path/to/additional-image-1.jpg",
+            text: (
+              <>
+                <span className="text-green-400">Automated </span> billing
+                processes.
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-start",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic ",
+            },
+          },
+          {
+            type: "text",
+            text: (
+              <>
+                The system automates billing processes to reduce manual effort
+                and minimize errors. This automation leads to faster processing
+                times and more accurate billing, enhancing overall efficiency.{" "}
+                <span className="text-blue-300">
+                  Streamline your billing operations
+                </span>{" "}
+                with our advanced solution.
+              </>
+            ),
+            styles: {
+              container: "my-8",
+              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+            },
+          },
+        ],
+        [
+          {
+            type: "image",
+            src: "/path/to/additional-image-2.jpg",
+            text: (
+              <>
+                <span className="text-yellow-400">User-friendly </span>{" "}
+                interface.
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-end",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic ",
+            },
+          },
+          {
+            type: "carousel",
+            componentC: [
+              <Carousel slides={[HomePageOfEb, HomePageOfEb, HomePageOfEb]} />,
+            ],
+            styles: {
+              container: "flex  justify-center",
+              carousel: "rounded-xl ", 
+            },
+         },
+          
+          {
+            type: "text",
+            text: (
+              <>
+                The EB Billing System offers a{" "}
+                <span className="text-purple-300">user-friendly interface</span>{" "}
+                that makes it easy for users to navigate and manage their
+                billing information. With intuitive design and responsive
+                layout, users can access their billing details anytime,
+                anywhere.
+              </>
+            ),
+            styles: {
+              container: "my-8",
+              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+            },
+          },
+        ],
+        [
+          {
+            type: "image",
+            src: "/path/to/advanced-tech-image.jpg",
+            text: (
+              <>
+                Leveraging{" "}
+                <span className="text-indigo-400">advanced technologies</span>.
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-start",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic",
+            },
+          },
+          {
+            type: "text",
+            text: (
+              <>
+                Our system is built using modern frameworks like Spring Boot and
+                React, ensuring that the application is not only fast and
+                responsive but also easy to maintain and extend.{" "}
+                <span className="text-indigo-400">Modern technology</span>{" "}
+                powers every aspect of the EB Billing System, from user
+                management to secure transactions.
+              </>
+            ),
+            styles: {
+              container: "my-8",
+              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+            },
+          },
+        ],
+        [
+          {
+            type: "image",
+            src: "/path/to/payment-integration-image.jpg",
+            text: (
+              <>
+                Seamless<span className="text-burntSienna"> payment
+                integration. </span> 
+              </>
+            ),
+            styles: {
+              container: "w-full flex justify-end",
+              image: "rounded-lg shadow-lg",
+              text: "text-7xl font-thin font-classic",
+            },
+          },
+          {
+            type: "image",
+            src: Razorpay,
+            styles: {
+              container: "w-3/5  flex justify-center  mx-auto",
+              image: "rounded-lg h-full haloimage  w-full ",
+            },
+          },
+          {
+            type: "text",
+            text: (
+              <>
+                The EB Billing System integrates with UPI payment systems,
+                allowing users to pay their bills securely and conveniently. The
+                integration ensures that transactions are processed quickly,
+                with minimal disruption to the user experience.
+              </>
+            ),
+            styles: {
+              container: "my-8 mt-auto",
+              text: "text-sm text-white md:w-1/2 w-full  font-light leading-relaxed font-mono",
+            },
+          },
+        ],
       ],
       imageUrl: HomePageOfEb,
       link: "#",
-      github: "https://github.com/your-repo/project-two",
+      github: "https://github.com/ShashwanthN/EB-Billing-System.git",
       colors: {
         background: "#1c1c1e",
         text: "#f5f5f7",
@@ -192,10 +403,9 @@ const Projects = () => {
   };
 
   return (
-    
     <div className=" bg-[#121212]">
       <div
-        className="w-4/5 mx-auto flex flex-col border-r border-l border-darkBorder text-white"
+        className="md:w-4/5 w-full mx-auto flex flex-col border-r border-l border-darkBorder text-white"
         style={{ backgroundColor: "#121212" }}
       >
         <div className=" justify-between flex flex-col">
@@ -275,6 +485,5 @@ const Projects = () => {
     </div>
   );
 };
-
 
 export default Projects;

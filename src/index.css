@@ -11,6 +11,58 @@
   filter: brightness(75%);
 }
 
+.halocont {
+  
+
+}
+
+
+.outline-image {
+  filter: drop-shadow(2px 2px 0px rgba(255, 255, 255)); 
+}
+/* .outline-image {
+  filter: drop-shadow(0px 0px 0px #FFFFFF) drop-shadow(2px 2px 0px #FFFFFF);
+} */
+
+
+.haloimage {
+
+  filter: drop-shadow(0px 0px 100px rgba(255, 255, 255, 0.8));
+ 
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply the animations */
+.animate-from-left {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.animate-from-right {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+
 html {
   overscroll-behavior: contain;
   background-color: #e2e4dd;

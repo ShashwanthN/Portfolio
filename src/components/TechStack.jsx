@@ -4,12 +4,10 @@ import {
   SiReact,
   SiMysql,
   SiJsonwebtokens,
-  SiHibernate,
-  SiApachemaven,
   SiPostman,
   SiGit,
 } from "react-icons/si";
-import techStackImg from '../assets/stackimg.svg';
+
 const TechStack = () => {
   const [hoveredId, setHoveredId] = useState(null);
 
@@ -26,14 +24,12 @@ const TechStack = () => {
       name: "JWT",
       color: "hover:bg-pink-500",
     },
-    // { id: 3, icon: <SiHibernate size={70} />, name: "Hibernate", color: "bg-purple-500" },
     {
       id: 4,
       icon: <SiReact size={70} />,
       name: "React",
       color: "hover:bg-[#58c4dc]",
     },
-    // { id: 5, icon: <SiApachemaven size={70} />, name: "Maven", color: "bg-[#434243]" },
     {
       id: 6,
       icon: <SiPostman size={70} />,
@@ -56,6 +52,7 @@ const TechStack = () => {
 
   return (
     <div className="w-full min-h-screen mx-auto py-16 relative bg-gray-3">
+      
       <div className="flex h-full space-x-28 mx-8">
         <h2 className="text-5xl w-full text-secondary font-bold mb-12 font-classic">
           Tech That’s Got Your (and my) <br />
@@ -69,35 +66,34 @@ const TechStack = () => {
           pleasure for me.
         </div>
       </div>
-      <div className="h-full"></div>
-      <div className="relative w-full">
-
-      
-      <div className="flex  border-t h-44 font-mono border-b  w-full border-black divide-secondary divide-x bg- text-secondary justify-between items-center">
-        {techStack.map((tech) => (
-          <div
-            key={tech.id}
-            className={`relative flex flex-col items-center p-4 w-full h-full justify-center transition-all duration-300 transform group ${tech.color}`}
-            onMouseEnter={() => setHoveredId(tech.id)}
-            onMouseLeave={() => setHoveredId(null)}
-          >
-            <div className="z-10 flex flex-col items-center">
-              <div className="mb-2 flex items-center justify-center p-2 rounded-full">
-                {tech.icon}
+     
+      <div className="absolute bottom-0 left-0 right-0">
+      <div className="text-end pr-2 text-sm opacity-40">
+          * Open to adapting my stack based on job needs.
+        </div>
+        <div className="flex border-t h-44 font-mono border-b w-full border-black divide-secondary divide-x bg- text-secondary justify-between items-center">
+          {techStack.map((tech) => (
+            <div
+              key={tech.id}
+              className={`relative flex flex-col items-center p-4 w-full h-full justify-center transition-all duration-300 transform group ${tech.color}`}
+              onMouseEnter={() => setHoveredId(tech.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              <div className="z-10 flex flex-col items-center">
+                <div className="mb-2 flex items-center justify-center p-2 rounded-full">
+                  {tech.icon}
+                </div>
               </div>
+              {hoveredId === tech.id && (
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray text-white text-sm rounded-md py-1 px-2 whitespace-nowrap">
+                  {tech.name}
+                </div>
+              )}
             </div>
-            {hoveredId === tech.id && (
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray text-white text-sm rounded-md py-1 px-2 whitespace-nowrap">
-                {tech.name}
-              </div>
-            )}
-          </div>
-        ))}
-        
+          ))}
+        </div>
+       
       </div>
-      <div className="text-end pr-2 text-sm opacity-40">* Open to adapting my stack based on job needs.</div>
-      </div>
-      
     </div>
   );
 };

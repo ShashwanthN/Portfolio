@@ -63,6 +63,8 @@ const Intro = () => {
   };
 
   return (
+    <div>
+     
     <div className="min-h-screen flex flex-col relative border-t border-black">
       <FloatingCircles startPositions={starPositions} />
 
@@ -145,6 +147,9 @@ const Intro = () => {
           </div>
         </div>
       </div>
+      
+    </div>
+    
     </div>
   );
 };

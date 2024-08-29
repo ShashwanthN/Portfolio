@@ -214,9 +214,10 @@ const FloatingCircles = () => {
 
   return (
     <div className="md:w-4/5 w-full mx-auto flex items-center justify-center">
+      
       <div className="fixed z-40 top-0 border-black md:w-4/5 w-full mx-auto grid grid-cols-6 h-20 transition-all transform duration-500 items-center">
         <div
-          className="navbar-item z-50 border-b border-l border-t border-black h-20 col-span-2 bg-blue-500 text-white flex items-center justify-center transition-opacity duration-500"
+          className="navbar-item z-50 border-b border-l border-t border-black h-20 col-span-2 bg-sky-500 text-white flex items-center justify-center transition-opacity duration-500"
           style={{
             opacity: isTransformed ? 1 : 0,
           }}
@@ -256,7 +257,9 @@ const FloatingCircles = () => {
           }}
         >
           4
+          
         </div>
+        
       </div>
 
       <motion.div className="relative z-50">

@@ -1,10 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { AiOutlineForm } from "react-icons/ai";
 import { BsFillChatSquareTextFill } from "react-icons/bs";
 import NormalNavbar from "../components/NormalNavbar";
 
 const Contact = () => {
+  const [userDetails, setUserDetails] = useState({ name: "", email: "" });
+  const [isChatActive, setIsChatActive] = useState(false);
+  const [messages, setMessages] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setUserDetails({
+      name: form.name.value,
+      email: form.email.value,
+    });
+    setIsChatActive(true);
+  };
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    const message = e.target.message.value;
+    if (message) {
+      setMessages([...messages, message]);
+      e.target.reset();
+    }
+  };
   return (
     <div className="min-h-screen w-4/5 mx-auto border bg-primary   text-black flex flex-col">
         <NormalNavbar/>

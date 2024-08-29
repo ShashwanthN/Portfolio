@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
+
 const colors = require("tailwindcss/colors");
 
-module.exports = withMT({
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   safelist: [
     'rounded-full',
     'for-reverse',
@@ -84,4 +84,4 @@ module.exports = withMT({
     },
   },
   plugins: [],
-});
+}
