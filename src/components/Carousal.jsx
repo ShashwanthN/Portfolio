@@ -21,7 +21,7 @@ const Carousel = ({ slides }) => {
   };
 
   return (
-    <div className="relative  border-2 border-yellow-400 w-full max-w-4xl mx-auto overflow-hidden">
+    <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -42,14 +42,14 @@ const Carousel = ({ slides }) => {
 
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 animate-slide left-2 transform -translate-y-1/2 p-2 text-white hover:text-gray-500 transition"
+        className="absolute top-1/2 animate-slide left-2 transform -translate-y-1/2 p-2 text-white hover:text-gray-2 transition"
         style={{ zIndex: 10 }}
       >
         <AiOutlineLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 text-white hover:text-gray-500 transition"
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 text-white hover:text-gray-2 transition"
         style={{ zIndex: 10 }}
       >
         <AiOutlineRight size={24} />

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import JWT from "../assets/jwtimg.png";
 import Carousel from "../components/Carousal";
 import Razorpay from "../assets/Razorpay.png";
+import MinimalNavbar from "../components/MinimalNavbar";
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const detailedViewRef = useRef(null);
@@ -108,22 +109,22 @@ const Projects = () => {
             src: "/path/to/project-two-image.jpg",
             text: (
               <>
-                Designed to be{" "}
-                <span className="text-accent">scalable.</span>
+                Designed to be <span className="text-accent">scalable.</span>
               </>
             ),
             styles: {
-              container: "w-full flex justify-start",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic ",
+              container:
+                " border-b bg-accent border-r border-darkBorder flex justify-start",
+              image: "rounded-lg border-r border-darkBorder shadow-lg",
+              text: "text-7xl p-20 bg-charcoal font-thin font-classic",
             },
           },
           {
             type: "video",
             src: vid,
             styles: {
-              container: "w-full flex justify-end",
-              video: "rounded-lg shadow-lg max-w-full h-auto",
+              container: "bg-gray-5 flex-grow",
+              video: " border-l border-darkBorder h-full ml-auto w-4/5",
             },
           },
           {
@@ -140,8 +141,8 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "my-8",
-              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+              container: "border-t bg-charcoal border-darkBorder",
+              text: "text-sm text-white md:w-1/2 border-r bg-gray-1 border-darkBorder p-20 w-full font-light leading-relaxed font-mono text-justify mr-auto",
             },
             dangerouslySetInnerHTML: true,
           },
@@ -152,13 +153,14 @@ const Projects = () => {
             src: "/path/to/security-image.jpg",
             text: (
               <>
-                <span className="text-blue-500">Security</span> in mind.
+                <span className="text-blue-500">Security</span> at the core.
               </>
             ),
             styles: {
-              container: "w-full flex justify-end",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic ",
+              container:
+                "w-full border-b bg-blue-800 border-darkBorder flex justify-end",
+              image: "rounded-lg  shadow-lg",
+              text: "text-7xl font-thin bg-secondary border-l border-darkBorder font-classic p-20 ",
             },
             dangerouslySetInnerHTML: true,
           },
@@ -166,16 +168,17 @@ const Projects = () => {
             type: "image",
             src: JWT,
             styles: {
-              container: "w-3/5 halocont flex justify-center mx-auto",
-              image: "rounded-lg haloimage w-full h-auto",
+              container:
+                "w-full h-full bg-[#070D16]  flex justify-center mx-auto",
+              image: " w-3/5    border-darkBorder outline-image",
             },
           },
           {
             type: "image",
             text: "The EB Billing System employs JWT (JSON Web Tokens) to ensure secure and reliable authentication. By leveraging JWT, the system safeguards user data, providing a secure environment for managing billing information online.",
             styles: {
-              container: "my-8 flex justify-end",
-              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+              container: "border-t bg-[#0A1B2E] border-darkBorder",
+              text: "text-sm text-white md:w-3/5 border-l bg-shade1 border-r border-darkBorder p-20 w-full font-light leading-relaxed font-mono text-justify mr-auto",
             },
           },
         ],
@@ -190,13 +193,16 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "w-full flex justify-start",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic ",
+              container:
+                " border-b bg-green-600 border-r border-darkBorder flex justify-start",
+              image: "rounded-lg border-r border-darkBorder shadow-lg",
+              text: "text-7xl p-20 bg-charcoal font-thin font-classic",
             },
           },
+
           {
-            type: "text",
+            type: "image",
+            src: JWT,
             text: (
               <>
                 The system automates billing processes to reduce manual effort
@@ -209,8 +215,9 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "my-8",
-              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+              container: "border-t flex bg-[#0B1E13] border-darkBorder",
+              text: "text-sm text-white border-r bg-gray-1 border-darkBorder p-20 w-full font-light leading-relaxed font-mono text-justify mr-auto",
+              image: "w-2/5",
             },
           },
         ],
@@ -225,9 +232,10 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "w-full flex justify-end",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic ",
+              container:
+                " border-b bg-yellow-400 border-r border-darkBorder flex justify-start",
+              image: "rounded-lg border-r border-darkBorder shadow-lg",
+              text: "text-7xl p-20 bg-gray-5 font-thin font-classic",
             },
           },
           {
@@ -236,17 +244,17 @@ const Projects = () => {
               <Carousel slides={[HomePageOfEb, HomePageOfEb, HomePageOfEb]} />,
             ],
             styles: {
-              container: "flex  justify-center",
-              carousel: "rounded-xl ", 
+              container: "flex bg-[#2a1c01] justify-center",
+              carousel: "  border-r border-l border-darkBorder",
             },
-         },
-          
+          },
+
           {
             type: "text",
             text: (
               <>
                 The EB Billing System offers a{" "}
-                <span className="text-purple-300">user-friendly interface</span>{" "}
+                <span className="text-yellow-300">user-friendly interface</span>{" "}
                 that makes it easy for users to navigate and manage their
                 billing information. With intuitive design and responsive
                 layout, users can access their billing details anytime,
@@ -254,8 +262,8 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "my-8",
-              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+              container: "border-t bg-gray border-darkBorder",
+              text: "text-sm text-yellow-200 md:w-1/2 bg-bg border-l border-darkBorder p-10 w-full font-light leading-relaxed font-mono text-justify ml-auto",
             },
           },
         ],
@@ -270,9 +278,10 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "w-full flex justify-start",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic",
+              container:
+                " border-b bg-yellow-400 border-r border-darkBorder flex justify-start",
+              image: "rounded-lg border-r border-darkBorder shadow-lg",
+              text: "text-7xl p-20 bg-gray-5 font-thin font-classic",
             },
           },
           {
@@ -288,8 +297,8 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "my-8",
-              text: "text-sm text-white md:w-1/2 w-full font-light leading-relaxed font-mono",
+              container: "border-t bg-charcoal border-darkBorder",
+              text: "text-sm text-white md:w-1/2 border-r bg-gray-1 border-darkBorder p-20 w-full font-light leading-relaxed font-mono text-justify mr-auto",
             },
           },
         ],
@@ -299,22 +308,24 @@ const Projects = () => {
             src: "/path/to/payment-integration-image.jpg",
             text: (
               <>
-                Seamless<span className="text-burntSienna"> payment
-                integration. </span> 
+                Seamless
+                <span className="text-burntSienna"> payment integration. </span>
               </>
             ),
             styles: {
-              container: "w-full flex justify-end",
-              image: "rounded-lg shadow-lg",
-              text: "text-7xl font-thin font-classic",
+              container:
+                " border-b bg-[#e76f51] border-r border-darkBorder flex justify-start",
+              image: "rounded-lg border-r border-darkBorder shadow-lg",
+              text: "text-7xl p-20 bg-gray-5 font-thin font-classic",
             },
           },
           {
             type: "image",
             src: Razorpay,
             styles: {
-              container: "w-3/5  flex justify-center  mx-auto",
-              image: "rounded-lg h-full haloimage  w-full ",
+              container:
+                "w-full h-full bg-[#070D16]  flex justify-center mx-auto",
+              image: " w-3/5    border-darkBorder outline-image",
             },
           },
           {
@@ -328,8 +339,8 @@ const Projects = () => {
               </>
             ),
             styles: {
-              container: "my-8 mt-auto",
-              text: "text-sm text-white md:w-1/2 w-full  font-light leading-relaxed font-mono",
+              container: "border-t bg-charcoal border-darkBorder",
+              text: "text-sm text-white md:w-1/2 border-r bg-gray-1 border-darkBorder p-20 w-full font-light leading-relaxed font-mono text-justify mr-auto",
             },
           },
         ],
@@ -404,8 +415,10 @@ const Projects = () => {
 
   return (
     <div className=" bg-[#121212]">
+      {selectedProject ? <div></div> : <MinimalNavbar />}
+
       <div
-        className="md:w-4/5 w-full mx-auto flex flex-col border-r border-l border-darkBorder text-white"
+        className="md:w-4/5 w-full mx-auto flex flex-col border-r border-l border-t border-darkBorder text-white"
         style={{ backgroundColor: "#121212" }}
       >
         <div className=" justify-between flex flex-col">

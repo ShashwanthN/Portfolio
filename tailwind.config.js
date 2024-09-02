@@ -53,6 +53,7 @@ module.exports = {
       colors: {
         darkBorder: "#3a3a3c",
         text: "#07070c",
+        bg: "#1c1c1e",
         background: "#f4f4fa",
         teal: "#0077b6",
         primary: "#e2e4dd",
@@ -68,7 +69,13 @@ module.exports = {
         ashGray: "#b2beb5",
         paleCyan: "#c1e1dc",
         charcoal: "#333333",
-      
+     
+        shade1: "#1F2022",
+        shade2: "#2A2C2F",
+        shade3: "#3A3C3F",
+        shade4: "#33363A",
+        shade5: "#292B2E",
+        
       deepBurgundy: "#5b2c2c",
         'gray': '#404040',
       'gray-1': '#1a1a1c',

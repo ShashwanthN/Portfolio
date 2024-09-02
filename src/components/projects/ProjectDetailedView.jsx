@@ -11,7 +11,7 @@ const ProjectDetailedView = ({
 }) => {
   return (
     <motion.div
-      className="z-50 w-full mx-auto flex flex-col"
+      className="z-50 w-full  mx-auto flex flex-col"
       style={{
         backgroundColor: project.colors.background,
         color: project.colors.text,
@@ -35,7 +35,6 @@ const ProjectDetailedView = ({
           <div className="font-mono text-lg">Back to Projects</div>
         </div>
       </button>
-
 
       <div className="w-full border-b border-darkBorder text-white">
         <div className="flex p-10 flex-col space-y-12">
@@ -121,11 +120,11 @@ const ProjectDetailedView = ({
           </div>
         </div>
 
-        <div className="flex flex-col justify-between space-y-12">
+        <div className="flex flex-col justify-between  ">
           {project.content.map((list, index) => (
             <div
               key={index}
-              className="space-y-12 min-h-screen flex flex-col justify-between border-b border-darkBorder p-10"
+              className=" min-h-screen flex flex-col  border-t justify-between border-b border-darkBorder"
             >
               {list.map((item, itemIndex) => {
                 const ref = useRef(null);
@@ -193,7 +192,9 @@ const ProjectDetailedView = ({
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8 }}
                       >
-                        {item.componentC}
+                        <div className={`${item.styles.carousel} halo`}>
+                          {item.componentC}
+                        </div>
                       </motion.div>
                     );
                   default:
