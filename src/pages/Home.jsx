@@ -12,7 +12,7 @@ const Home = () => {
       <div className="fixed top-0 z-50 h-20 min-w-screen bg-secondary"></div>
       <main className=" border-l h-[] bg-primary border-black border-r">
        
-        <div>
+        <div className="">
           <Intro />
         </div>
         

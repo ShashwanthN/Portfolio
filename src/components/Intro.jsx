@@ -68,7 +68,7 @@ const Intro = () => {
     <div className="min-h-screen flex flex-col relative border-t border-black">
       <FloatingCircles startPositions={starPositions} />
 
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col h-screen md:flex-row">
         <div className="md:w-1/2 border-r border-black flex flex-col">
           <div className="h-64 no-scrollbar relative">
             <News onScroll={handleScroll} />
@@ -85,7 +85,7 @@ const Intro = () => {
             
           </div>
 
-          <div className="flex flex-col border-t border-b border-r border-black text-primary justify-center bg-secondary items-start p-5 relative h-64">
+          <div className="flex flex-col border-t h-full border-b border-r border-black text-primary justify-center bg-secondary items-start p-5 relative h-full">
             <div className="text-3xl mb-2 font-medium font-mono">
               Shashwanth
             </div>

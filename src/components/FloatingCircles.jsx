@@ -17,6 +17,12 @@ const FloatingCircles = () => {
   const animatedDivRefs = useRef([]);
   const animationInProgress = useRef(false);
   const lineRefs = useRef([]);
+  const [staggeredStarts, setStaggeredStarts] = useState({
+    projects: false,
+    knowMe: false,
+    socials: false,
+    otherStuff: false
+  });
 
   const controls = {
     projects: useAnimation(),
@@ -62,38 +68,57 @@ const FloatingCircles = () => {
   };
 
   useEffect(() => {
-    let interval;
+    // Stagger the start of each circle
+    setTimeout(() => {
+      setStaggeredStarts(prev => ({ ...prev, projects: true }));
+    }, 0);
+    
+    setTimeout(() => {
+      setStaggeredStarts(prev => ({ ...prev, knowMe: true }));
+    }, 1000);
+    
+    setTimeout(() => {
+      setStaggeredStarts(prev => ({ ...prev, socials: true }));
+    }, 2000);
+    
+    setTimeout(() => {
+      setStaggeredStarts(prev => ({ ...prev, otherStuff: true }));
+    }, 3000);
+  }, []);
 
+  useEffect(() => {
+    let interval;
     const intervals = started ? 10000 : 10;
 
     if (isAnimating && !isStopped) {
       interval = setInterval(() => {
         const newPositions = {
-          projects: {
+          projects: staggeredStarts.projects ? {
             top: `${Math.random() * 80 + 10}%`,
             left: `${Math.random() * 80 + 10}%`,
-          },
-          knowMe: {
+          } : positions.projects,
+          knowMe: staggeredStarts.knowMe ? {
             top: `${Math.random() * 80 + 10}%`,
             left: `${Math.random() * 80 + 10}%`,
-          },
-          socials: {
+          } : positions.knowMe,
+          socials: staggeredStarts.socials ? {
             top: `${Math.random() * 80 + 10}%`,
             left: `${Math.random() * 80 + 10}%`,
-          },
-          otherStuff: {
+          } : positions.socials,
+          otherStuff: staggeredStarts.otherStuff ? {
             top: `${Math.random() * 80 + 10}%`,
             left: `${Math.random() * 80 + 10}%`,
-          },
+          } : positions.otherStuff,
         };
 
         setPositions(newPositions);
-        controls.projects.start(newPositions.projects);
-        controls.knowMe.start(newPositions.knowMe);
-        controls.socials.start(newPositions.socials);
-        controls.otherStuff.start(newPositions.otherStuff);
+        
+        if (staggeredStarts.projects) controls.projects.start(newPositions.projects);
+        if (staggeredStarts.knowMe) controls.knowMe.start(newPositions.knowMe);
+        if (staggeredStarts.socials) controls.socials.start(newPositions.socials);
+        if (staggeredStarts.otherStuff) controls.otherStuff.start(newPositions.otherStuff);
 
-        if (!started) {
+        if (!started && Object.values(staggeredStarts).every(Boolean)) {
           setStarted(true);
         }
       }, intervals);
@@ -102,7 +127,7 @@ const FloatingCircles = () => {
     }
 
     return () => clearInterval(interval);
-  }, [isAnimating, isStopped, started, controls]);
+  }, [isAnimating, isStopped, started, controls, staggeredStarts]);
 
   useEffect(() => {
     const handleScroll = () => {

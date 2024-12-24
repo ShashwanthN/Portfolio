@@ -118,7 +118,7 @@ const SessionNavigator = () => {
 |'-.____o_|   '-.     '-...______...-'  \`-._          
 :_________:      \`.______________________     \`-.___.-. 
                  .'.eeeeeeeeeeeeeeeeeeee.'.       :___:
-    fsc        .'.eeeeeeeeeeeeeeeeeeeeeeee.'.         
+               .'.eeeeeeeeeeeeeeeeeeeeeeee.'.         
               :______________________________:
       `,
     },
@@ -132,7 +132,7 @@ const SessionNavigator = () => {
       bgColor: "bg-white text-black",
       image: DRDO,
       imageWidth: "50%",
-      anyDesigns: "bottom-16 left-96",
+      anyDesigns: "bottom-20 left-96",
       ascii: `                                    
    ______
   /(    )\\

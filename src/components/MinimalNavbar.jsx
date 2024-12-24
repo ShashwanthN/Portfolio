@@ -16,6 +16,7 @@ const MinimalNavbar = () => {
       const currentScrollPos = window.pageYOffset;
       setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       setPrevScrollPos(currentScrollPos);
+      
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,7 +34,7 @@ const MinimalNavbar = () => {
 
   return (
     <div className={topbarClass}>
-      <div className="backdrop-brightness-50 md:w-4/5  mx-auto  backdrop-blur-xl shadow-lg border border-gray">
+      <div className="backdrop-brightness-50 md:w-4/5 bg-midnight mx-auto  backdrop-blur-xl shadow-lg border border-darkBorder">
         <div className="container mx-auto flex items-center text-white">
           
           <div className="flex items-end ml-auto justify-end p-2 space-x-4 lg:hidden">
@@ -57,46 +58,46 @@ const MinimalNavbar = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden lg:flex flex-wrap justify-center p-4 mx-auto items-center text-[#bebebe] space-x-4 lg:space-x-10">
+          <div className="hidden lg:flex flex-wrap justify-center p-4 mx-auto text-xs items-center text-[#bebebe] space-x-4 lg:space-x-20">
             <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-[#ffffff] text-white transition duration-300"
+                  ? "border p-2 rounded-full bg-gray-5 hover:bg-gray px-2 border-[#3c3c3c] text-white transition duration-300"
                   : "hover:text-white transition duration-300"
               }
             >
               Home
             </NavLink>
             <NavLink
-              to="/DisplayBills"
+              to="/projects"
               className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-[#ffffff] text-white transition duration-300"
+                  ? "border p-2 rounded-full bg-gray-5 hover:bg-gray px-3 border-[#3c3c3c] text-white transition duration-300"
                   : "hover:text-white transition duration-300"
               }
             >
-              Pay Bills
+              Projects
             </NavLink>
             <NavLink
-              to="/MeterReadingDisplay"
+              to="/knowMe"
               className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-[#ffffff] text-white transition duration-300"
+                  ? "border p-2 rounded-full bg-gray-5 hover:bg-gray  border-[#3c3c3c] text-white transition duration-300"
                   : "hover:text-white transition duration-300"
               }
             >
-              Past Readings
+              Know Me
             </NavLink>
             <NavLink
-              to="/CalculateBills"
+              to="/contact"
               className={({ isActive }) =>
                 isActive
-                  ? "border-b-4 border-[#ffffff] text-white transition duration-300"
+                  ? "border p-2 rounded-full bg-gray-5 hover:bg-gray  border-[#3c3c3c] text-white transition duration-300"
                   : "hover:text-white transition duration-300"
               }
             >
-              Billing Math
+              Contact
             </NavLink>
           </div>
           
@@ -113,7 +114,7 @@ const MinimalNavbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "block border-b-2 border-[#ffffff] text-white transition duration-300 py-2"
+                  ? "block border-b border-[#3a3a3a] text-white transition duration-300 py-2"
                   : "block hover:text-white transition duration-300 py-2"
               }
               onClick={() => setIsDropdownOpen(false)}
@@ -121,10 +122,10 @@ const MinimalNavbar = () => {
               Home
             </NavLink>
             <NavLink
-              to="/DisplayBills"
+              to="/projects"
               className={({ isActive }) =>
                 isActive
-                  ? "block border-b-4 border-[#ffffff] text-white transition duration-300 py-2"
+                  ? "block border-b border-[#3a3a3a] text-white transition duration-300 py-2"
                   : "block hover:text-white transition duration-300 py-2"
               }
               onClick={() => setIsDropdownOpen(false)}
@@ -132,10 +133,10 @@ const MinimalNavbar = () => {
               Pay Bills
             </NavLink>
             <NavLink
-              to="/MeterReadingDisplay"
+              to="/knowMe"
               className={({ isActive }) =>
                 isActive
-                  ? "block border-b-4 border-[#ffffff] text-white transition duration-300 py-2"
+                  ? "block border-b border-[#3a3a3a] text-white transition duration-300 py-2"
                   : "block hover:text-white transition duration-300 py-2"
               }
               onClick={() => setIsDropdownOpen(false)}
@@ -143,20 +144,16 @@ const MinimalNavbar = () => {
               Past Readings
             </NavLink>
             <NavLink
-              to="/CalculateBills"
+              to="/contacts"
               className={({ isActive }) =>
                 isActive
-                  ? "block border-b-4 border-[#ffffff] text-white transition duration-300 py-2"
+                  ? "block border-b border-[#3a3a3a] text-white transition duration-300 py-2"
                   : "block hover:text-white transition duration-300 py-2"
               }
               onClick={() => setIsDropdownOpen(false)}
             >
               Billing Math
             </NavLink>
-      
-         
-              
-                
           </div>
         </div>
       </div>

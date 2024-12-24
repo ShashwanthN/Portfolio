@@ -1,8 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+// @type {import('tailwindcss').Config}
+import colors from 'tailwindcss/colors';
 
-const colors = require("tailwindcss/colors");
-
-module.exports = {
+export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   safelist: [
     'rounded-full',
@@ -12,18 +11,14 @@ module.exports = {
     extend: {
       animation: {
         'gradient-x': 'gradient-x 5s ease infinite',
-      },
-     
-        
-      fontFamily: {
-        sans: ["Roboto", "sans-serif"], 
-        mono: ["Roboto Mono", "Fira Code", "Courier New", "monospace"], 
-        handwriting: ['Indie Flower', 'cursive'],
-        classic: ['"DM Serif Text"', 'serif'],
-      },
-      animation: {
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
+      },
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        mono: ["Roboto Mono", "Fira Code", "Courier New", "monospace"],
+        handwriting: ['Indie Flower', 'cursive'],
+        classic: ['"DM Serif Text"', 'serif'],
       },
       keyframes: {
         "spin-around": {
@@ -69,26 +64,22 @@ module.exports = {
         ashGray: "#b2beb5",
         paleCyan: "#c1e1dc",
         charcoal: "#333333",
-     
         shade1: "#1F2022",
         shade2: "#2A2C2F",
         shade3: "#3A3C3F",
         shade4: "#33363A",
         shade5: "#292B2E",
-        
-      deepBurgundy: "#5b2c2c",
+        deepBurgundy: "#5b2c2c",
         'gray': '#404040',
-      'gray-1': '#1a1a1c',
-      'gray-5': '#242426',
-      'gray-2': '#808080',
-      'gray-3': '#e7e7e7',
-      'gray-4': '#bfbfbf',
-      'error' : "#e23636",
-      'success': "#68E534",
-        error: "#e23636",
-        success: "#68E534",
+        'gray-1': '#1a1a1c',
+        'gray-5': '#242426',
+        'gray-2': '#808080',
+        'gray-3': '#e7e7e7',
+        'gray-4': '#bfbfbf',
+        'error': "#e23636",
+        'success': "#68E534",
       },
     },
   },
   plugins: [],
-}
+};

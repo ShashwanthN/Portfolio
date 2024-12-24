@@ -9,6 +9,13 @@ const ProjectDetailedView = ({
   setIsSelected,
   setBackTo,
 }) => {
+  const handleBack = () => {
+    window.scrollTo(0, 0);
+    setSelectedProject(null);
+    setIsSelected(false);
+    setBackTo(true);
+  };
+
   return (
     <motion.div
       className="z-50 w-full  mx-auto flex flex-col"
@@ -22,11 +29,7 @@ const ProjectDetailedView = ({
       transition={{ duration: 0.5 }}
     >
       <button
-        onClick={() => {
-          setSelectedProject(null);
-          setIsSelected(false);
-          setBackTo(true);
-        }}
+        onClick={handleBack}
         className="border w-fit px-4 m-4 rounded-full py-1 hover:bg-darkBorder border-darkBorder text-lg"
         style={{ color: project.colors.text }}
       >
@@ -57,10 +60,10 @@ const ProjectDetailedView = ({
             </div>
           </div>
 
-          <div className="flex  justify-between">
+          <div className="md:flex  justify-between">
             <div className="space-y-4 ">
               <motion.h2
-                className="text-8xl mb-4 font-extrabold tracking-tighter"
+                className="md:text-8xl text-4xl mb-4 font-extrabold tracking-tighter"
                 initial={{ x: -150, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -70,7 +73,7 @@ const ProjectDetailedView = ({
                 {project.title}
               </motion.h2>
               <motion.p
-                className="text-2xl text-gray-3 font-medium"
+                className="md:text-2xl tracking-wide font-light text-gray-3 md:font-medium"
                 initial={{ x: -150, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -93,13 +96,13 @@ const ProjectDetailedView = ({
                 ))}
               </div>
             </div>
-            <div className="flex items-end h-16 w-72 mt-4">
+            <div className="md:flex  items-end md:h-16 space-y-2  md:w-72 md:mt-4 mt-10">
               <div className="flex-1 h-full flex ">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center text-sm border-2 border-primary bg-primary text-secondary font-mono font-light hover:bg-transparent hover:text-primary transition-all duration-300 flex-1"
+                  className="flex items-center justify-center text-sm border-2 border-primary bg-primary text-secondary p-2 font-mono font-light hover:bg-transparent hover:text-primary transition-all duration-300 flex-1"
                 >
                   Live Demo
                   <FaExternalLinkAlt className="ml-2" />
@@ -110,7 +113,7 @@ const ProjectDetailedView = ({
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-secondary hover:text-accent justify-center text-sm font-mono font-light border-2 border-accent bg-accent hover:bg-transparent transition-all duration-300 flex-1"
+                  className="flex items-center p-2 text-secondary hover:text-accent justify-center text-sm font-mono font-light border-2 border-accent bg-accent hover:bg-transparent transition-all duration-300 flex-1"
                 >
                   GitHub
                   <FaGithub className="ml-2" />
@@ -120,11 +123,11 @@ const ProjectDetailedView = ({
           </div>
         </div>
 
-        <div className="flex flex-col justify-between  ">
+        <div className="flex flex-col space-y-4 md:p-0 md:pt-4 p-4 border-t border-darkBorder bg-zinc-900  justify-between  ">
           {project.content.map((list, index) => (
             <div
               key={index}
-              className=" min-h-screen flex flex-col  border-t justify-between border-b border-darkBorder"
+              className=" flex flex-col  justify-between md:border-b md:border-t border  border-gray drop-shadow-lg"
             >
               {list.map((item, itemIndex) => {
                 const ref = useRef(null);
