@@ -30,7 +30,7 @@ function App() {
         
         </Routes>
         <div className='w-4/5 mx-auto'>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
        
       </div>

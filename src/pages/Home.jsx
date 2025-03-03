@@ -5,6 +5,8 @@ import Boundary from "../components/Boundary";
 import TechStack from "../components/TechStack";
 import SessionNavigator from "../components/SessionNavigator";
 import Footer from "../components/Footer";
+import HomeFooter from "../components/HomeFooter";
+
 
 const Home = () => {
   return (
@@ -28,6 +30,7 @@ const Home = () => {
         <div className="">
         
         </div>
+       <HomeFooter/>
       </main>
     </Boundary>
   );
